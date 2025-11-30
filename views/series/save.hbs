@@ -1,0 +1,65 @@
+{{#if genresList}}
+<div class="col-12 col-md-6 offset-md-3">
+    <div class="card">
+        <div class="card-header bg-success text-light text-center">
+            <h3>{{#if editmode}} Editar {{else}} Crear {{/if}} serie.</h3>
+        </div>
+        <div class="card-body">
+            <form action="/series/{{#if editmode}}edit{{else}}create{{/if}}" method="post">
+                {{#if editmode}}
+                <input type="hidden" name="serieId" value="{{serie.id}}">
+                {{/if}}
+
+                <div class="form-group mb-3">
+                    <label for="serieName" class="form-label fw-bold">Nombre de la serie:</label>
+                    <input type="text" class="form-control" value="{{#if editmode}}{{serie.name}}{{/if}}" name="Name"
+                        id="serieName" required>
+                    <div class="invalid-feedback">El nombre de la serie es obligatorio.</div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="serieFrontPage" class="form-label fw-bold">Imagen de portada:</label>
+                    <input type="text" class="form-control" value="{{#if editmode}}{{serie.frontPage}}{{/if}}"
+                        name="FrontPage" id="serieFrontPage" required>
+                    <div class="invalid-feedback">La imagen de portada es obligatorio.</div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="serieYoutubeLink" class="form-label fw-bold">Enlace del video de youtube:</label>
+                    <input type="text" class="form-control" value="{{#if editmode}}{{serie.youtubeLink}}{{/if}}"
+                        name="YoutubeLink" id="serieYoutubeLink" required>
+                    <div class="invalid-feedback">El enlace de youtube es obligatorio.</div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="serieGenreId" class="form-label fw-bold">Género al que pertenece la serie:</label>
+                    <select class="form-select" name="GenreId" id="serieGenreId">
+                        <option value="">Selecciona el Género</option>
+                        {{#each genresList}}
+                        <option value="{{this.id}}" {{#if (eq this.id ../serie.genreId)}}selected{{/if}}>{{this.name}}
+                        </option>
+                        {{/each}}
+                    </select>
+                    <div class="invalid-feedback">El género es obligatorio.</div>
+                </div>
+
+                <button type="submit" class="btn btn-success float-end" onclick="validate()">{{#if editmode}} Editar
+                    {{else}} Guardar {{/if}}</button>
+            </form>
+
+            <a href="/series/index" class="btn btn-danger float-end me-3">Cancelar</a>
+        </div>
+    </div>
+</div>
+
+<script src="/assets/js/site/series/validator.js"></script>
+
+{{else}}
+
+<div class="col-12 col-md-6 offset-md-3">
+    <div class="alert alert-danger" role="alert">
+        No hay géneros cinematográficos registrado. <a href="/genre/create" class="alert-link">Crea uno</a> para poder
+        crear series.
+    </div>
+</div>
+{{/if}}

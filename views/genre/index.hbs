@@ -1,0 +1,60 @@
+<h1 class="text-center">Géneros cinematográficos</h1>
+
+<div class="col-12 col-md-6 offset-md-3 mt-5">
+    <div class="text-end mb-3">
+        <a class="btn btn-success" href="/genre/create">Agregar nuevo género</a>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-primary">
+            <tr class="text-center">
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#if hasGenres}}
+            {{#each genresList}}
+            <tr class="text-center">
+                <td>{{this.name}}</td>
+                <td>
+                    <a class="btn btn-outline-warning" href="/genre/edit/{{this.id}}">Editar</a>
+                    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#confirmationModal-{{this.id}}">Eliminar</button>
+                </td>
+            </tr>
+
+            <!-- Modal -->
+
+            <div class="modal fade" id="confirmationModal-{{this.id}}" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="confirmationModalLabel-{{this.id}}" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-center text-light">
+                            <h5 class="modal-title" id="confirmationModalLabel-{{this.id}}">Eliminar género cinematográfico</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>¿Estas seguro que deseas eliminar al género cinematográfico: <strong>{{this.name}}</strong></p>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="/genre/delete" method="post">
+                                <input type="hidden" value="{{this.id}}" name="GenreId">
+                                <button type="submit" class="btn btn-danger">Borrar</button>
+                            </form>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+
+            {{else}}
+
+            <tr>
+                <td class="text-center text-muted" colspan="2">No hay géneros cinematográficos registrados</td>
+            </tr>
+            {{/if}}
+        </tbody>
+    </table>
+</div>

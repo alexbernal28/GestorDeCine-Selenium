@@ -1,0 +1,31 @@
+{
+  "name": "gestordecine-selenium",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "node --experimental-modules tests/runner.js",
+    "test:genres": "node tests/genres.test.js",
+    "test:series": "node tests/series.test.js",
+    "test:filters": "node tests/filters.test.js",
+    "test:all": "node tests/runner.js",
+    "report": "node utils/generate-report.js"
+  },
+  "author": "Elvyn Alexander Bernal Zarzuela",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^6.2.1",
+    "mocha": "^11.7.5",
+    "mochawesome": "^7.1.4",
+    "nodemon": "^3.1.11"
+  },
+  "dependencies": {
+    "chromedriver": "^142.0.3",
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.4",
+    "geckodriver": "^6.1.0",
+    "selenium-webdriver": "^4.38.0"
+  }
+}
