@@ -1,0 +1,48 @@
+{
+  "suiteName": "Pruebas de Series",
+  "startTime": "2025-12-02T00:38:40.338Z",
+  "duration": 86.11,
+  "statistics": {
+    "passed": 4,
+    "failed": 0,
+    "warnings": 1,
+    "total": 5
+  },
+  "tests": [
+    {
+      "name": "Crear Serie",
+      "status": "passed",
+      "message": "Serie \"Breaking Bad-1764635939163\" creada exitosamente",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:39:21.631Z"
+    },
+    {
+      "name": "Crear Serie (Prueba Negativa - Campos vacíos)",
+      "status": "passed",
+      "message": "Sistema previno crear serie sin datos completos",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:39:26.945Z"
+    },
+    {
+      "name": "Crear Serie (Prueba de Límites - URL inválida)",
+      "status": "warning",
+      "message": "Sistema no valida formato de URL",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:39:34.646Z"
+    },
+    {
+      "name": "Editar Serie (Camino Feliz)",
+      "status": "passed",
+      "message": "Serie editada a \"Editada-1764635989446\"",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:39:54.871Z"
+    },
+    {
+      "name": "Editar Serie (Prueba Negativa - Vaciar nombre)",
+      "status": "passed",
+      "message": "Sistema previno editar con nombre vacío",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:40:01.009Z"
+    }
+  ]
+}

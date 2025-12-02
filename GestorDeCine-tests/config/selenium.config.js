@@ -41,7 +41,7 @@ export async function createDriver() {
 
 // Funcion para tomar screenshots
 
-export async function takeScreenshots(driver, testName) {
+export async function takeScreenshot(driver, testName) {
     const screenshot = await driver.takeScreenshot();
     const fs = await import('fs');
     const path = await import('path');

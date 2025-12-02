@@ -47,7 +47,7 @@ async function ensureGenreExists(driver, genrePage) {
         const isEmpty = await genrePage.isTableEmpty();
         
         if (isEmpty) {
-            console.log('📌 Creando género de prueba...');
+            console.log('Creando género de prueba...');
             await genrePage.createGenre('Ciencia ficción');
         }
     } catch (error) {

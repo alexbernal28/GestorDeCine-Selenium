@@ -1,0 +1,55 @@
+{
+  "suiteName": "Pruebas de Géneros Cinematográficos",
+  "startTime": "2025-12-02T00:37:00.202Z",
+  "duration": 97.274,
+  "statistics": {
+    "passed": 3,
+    "failed": 3,
+    "warnings": 0,
+    "total": 6
+  },
+  "tests": [
+    {
+      "name": "Crear Género",
+      "status": "failed",
+      "message": "El género no se creó correctamente",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:37:26.053Z"
+    },
+    {
+      "name": "Crear Género (Prueba Negativa - Campo Vacío)",
+      "status": "passed",
+      "message": "El sistema previno crear género sin nombre",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:37:31.324Z"
+    },
+    {
+      "name": "Editar Género",
+      "status": "failed",
+      "message": "La edición no se completó correctamente",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:37:47.877Z"
+    },
+    {
+      "name": "Editar Género (Prueba Negativa - Vaciar campo)",
+      "status": "passed",
+      "message": "Sistema previno editar con campo vacío",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:37:53.966Z"
+    },
+    {
+      "name": "Eliminar Género",
+      "status": "failed",
+      "message": "element not interactable\n  (Session info: chrome=142.0.7444.176)",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:38:24.472Z"
+    },
+    {
+      "name": "Eliminar Género (Cancelar operación)",
+      "status": "passed",
+      "message": "Funcionalidad de cancelar disponible",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:38:34.739Z"
+    }
+  ]
+}

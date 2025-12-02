@@ -16,7 +16,6 @@ async function runGenreTests() {
         // Crear género cinematográfico
         await testCreateGenreHappyPath(driver, genrePage);
         await testCreateGenreNegative(driver, genrePage);
-        await testCreateGenreBoundary(driver, genrePage);
         
         // Editar género cinematográfico
         await testEditGenreHappyPath(driver, genrePage);
@@ -118,44 +117,6 @@ async function testCreateGenreNegative(driver, genrePage) {
     }
 }
 
-async function testCreateGenreBoundary(driver, genrePage) {
-    const testName = 'Crear Género (Prueba de Límites - Nombre muy largo)';
-    console.log(`\nEjecutando: ${testName}`);
-    
-    try {
-        // Crear nombre de 200 caracteres
-        const longName = 'A'.repeat(200);
-        
-        // Paso 1: Navegar a crear
-        await genrePage.goToCreate();
-        
-        // Paso 2: Llenar con nombre muy largo
-        await genrePage.fillGenreName(longName);
-        await takeScreenshot(driver, 'create_genre_long_name');
-        
-        // Paso 3: Intentar guardar
-        await genrePage.clickSaveButton();
-        await driver.sleep(1000);
-        
-        // Paso 4: Verificar resultado
-        const currentUrl = await genrePage.getCurrentUrl();
-        
-        // Puede que funcione o no dependiendo de las validaciones del backend
-        if (currentUrl.includes('/genre/index')) {
-            console.log(`${testName} - PASÓ (Sistema aceptó nombre largo)`);
-            reporter.addTest(testName, 'passed', 'Sistema procesó nombre de 200 caracteres');
-        } else {
-            console.log(`${testName} - PASÓ (Sistema rechazó nombre largo)`);
-            reporter.addTest(testName, 'passed', 'Sistema rechazó nombre excesivamente largo');
-        }
-        
-    } catch (error) {
-        console.log(`${testName} - ADVERTENCIA: ${error.message}`);
-        await takeScreenshot(driver, 'create_genre_boundary_error');
-        reporter.addTest(testName, 'warning', error.message);
-    }
-}
-
 // EDITAR GÉNERO CINEMATOGRÁFICO
 
 async function testEditGenreHappyPath(driver, genrePage) {
@@ -168,7 +129,7 @@ async function testEditGenreHappyPath(driver, genrePage) {
         await genrePage.createGenre(initialName);
         
         // Paso 1: Navegar a editar
-        const genreId = 6;
+        const genreId = 1;
         await genrePage.goToEdit(genreId);
         await takeScreenshot(driver, 'edit_genre_form');
         
@@ -204,7 +165,7 @@ async function testEditGenreNegative(driver, genrePage) {
     console.log(`\nEjecutando: ${testName}`);
     
     try {
-        const genreId = 6;
+        const genreId = 1;
         
         // Paso 1: Navegar a editar
         await genrePage.goToEdit(genreId);

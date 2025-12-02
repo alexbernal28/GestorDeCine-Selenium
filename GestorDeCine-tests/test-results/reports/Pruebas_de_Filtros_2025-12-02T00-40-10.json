@@ -1,0 +1,48 @@
+{
+  "suiteName": "Pruebas de Filtros",
+  "startTime": "2025-12-02T00:40:10.485Z",
+  "duration": 297.554,
+  "statistics": {
+    "passed": 5,
+    "failed": 0,
+    "warnings": 0,
+    "total": 5
+  },
+  "tests": [
+    {
+      "name": "Filtrar por Nombre",
+      "status": "passed",
+      "message": "Filtro por nombre funcionó: 1 resultado(s)",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:43:05.191Z"
+    },
+    {
+      "name": "Filtrar por Nombre (Prueba Negativa - Sin coincidencias)",
+      "status": "passed",
+      "message": "Sistema muestra correctamente sin resultados",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:43:15.388Z"
+    },
+    {
+      "name": "Filtrar por Nombre (Prueba de Límites - Una letra)",
+      "status": "passed",
+      "message": "Filtro de una letra funcionó: 2 resultado(s)",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:43:42.129Z"
+    },
+    {
+      "name": "Filtrar por Género",
+      "status": "passed",
+      "message": "Filtro por género funcionó: 6 resultado(s)",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:44:19.755Z"
+    },
+    {
+      "name": "Filtrar Combinado (Nombre + Género)",
+      "status": "passed",
+      "message": "Filtro combinado funcionó: 2 resultado(s)",
+      "screenshot": null,
+      "timestamp": "2025-12-02T00:44:47.008Z"
+    }
+  ]
+}
